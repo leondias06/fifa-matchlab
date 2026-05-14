@@ -1,4 +1,4 @@
-@import "tailwindcss";
+  @import "tailwindcss";
 
 :root {
   color-scheme: dark;
@@ -16,4 +16,8 @@ body {
   margin: 0;
   background: #020617;
   color: #ffffff;
+}
+
+select {
+  color-scheme: dark;
 }

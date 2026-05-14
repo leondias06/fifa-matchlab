@@ -1,5 +1,6 @@
 [
   "Algeria",
+  "Angola",
   "Argentina",
   "Australia",
   "Austria",
@@ -14,9 +15,9 @@
   "Chile",
   "China PR",
   "Colombia",
+  "Congo",
   "Costa Rica",
   "Cyprus",
-  "Czechoslovakia",
   "DR Congo",
   "Denmark",
   "Ecuador",
@@ -26,6 +27,7 @@
   "Estonia",
   "Finland",
   "France",
+  "Gabon",
   "Germany",
   "Ghana",
   "Greece",
@@ -59,7 +61,6 @@
   "Morocco",
   "Myanmar",
   "Netherlands",
-  "New Zealand",
   "Nigeria",
   "Northern Ireland",
   "Norway",
@@ -96,7 +97,6 @@
   "Uruguay",
   "Venezuela",
   "Wales",
-  "Yugoslavia",
   "Zambia",
   "Zimbabwe"
 ]

@@ -1,5 +1,6 @@
 from pathlib import Path
 import pandas as pd
+import pycountry
 
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
@@ -11,6 +12,122 @@ TEAM_STATS_PATH = PROCESSED_DIR / "team_stats.csv"
 TEAMS_JSON_PATH = PROCESSED_DIR / "teams.json"
 TEAM_STATS_JSON_PATH = PROCESSED_DIR / "team_stats.json"
 
+
+FOOTBALL_COUNTRY_EXTRAS = {
+    "England",
+    "Scotland",
+    "Wales",
+    "Northern Ireland",
+    "Republic of Ireland",
+    "United States",
+    "China PR",
+    "Chinese Taipei",
+    "Hong Kong",
+    "Macau",
+    "Kosovo",
+    "Palestine",
+    "Faroe Islands",
+    "Czech Republic",
+    "DR Congo",
+    "Congo",
+    "Ivory Coast",
+    "Cape Verde",
+    "South Korea",
+    "North Korea",
+    "Iran",
+    "Russia",
+    "Syria",
+    "Vietnam",
+    "Venezuela",
+    "Bolivia",
+    "Moldova",
+    "Tanzania",
+    "Turkey",
+    "Brunei",
+    "Laos",
+    "East Timor",
+    "Kyrgyzstan",
+    "Eswatini",
+}
+
+NON_COUNTRY_TEAMS = {
+    "Abkhazia",
+    "Alderney",
+    "Andalusia",
+    "Arameans Suryoye",
+    "Artsakh",
+    "Basque Country",
+    "Biafra",
+    "Canary Islands",
+    "Cascadia",
+    "Catalonia",
+    "Chagos Islands",
+    "Chameria",
+    "Corsica",
+    "Crimea",
+    "Darfur",
+    "Ellan Vannin",
+    "Felvidék",
+    "Gozo",
+    "Greenland",
+    "Guernsey",
+    "Hitra",
+    "Isle of Man",
+    "Isle of Wight",
+    "Jersey",
+    "Kárpátalja",
+    "Kernow",
+    "Madrid",
+    "Mapuche",
+    "Matabeleland",
+    "Menorca",
+    "Nice",
+    "Northern Cyprus",
+    "Occitania",
+    "Orkney",
+    "Padania",
+    "Parishes of Jersey",
+    "Provence",
+    "Raetia",
+    "Rhodes",
+    "Romani people",
+    "Sápmi",
+    "Sark",
+    "Shetland",
+    "Somaliland",
+    "South Ossetia",
+    "Surrey",
+    "Székely Land",
+    "Tamil Eelam",
+    "Tibet",
+    "Two Sicilies",
+    "United Koreans in Japan",
+    "Western Armenia",
+    "Western Isles",
+    "Western Sahara",
+    "Ynys Môn",
+    "Yugoslavia",
+    "Czechoslovakia",
+    "Soviet Union",
+    "German DR",
+    "Saarland",
+}
+
+
+def is_country_team(team):
+    team = str(team).strip()
+
+    if team in NON_COUNTRY_TEAMS:
+        return False
+
+    if team in FOOTBALL_COUNTRY_EXTRAS:
+        return True
+
+    try:
+        pycountry.countries.lookup(team)
+        return True
+    except LookupError:
+        return False
 
 def get_match_result(row):
     if row["home_score"] > row["away_score"]:
@@ -107,6 +224,20 @@ def main():
     matches["home_score"] = matches["home_score"].astype(int)
     matches["away_score"] = matches["away_score"].astype(int)
 
+    before_rows = len(matches)
+    before_teams = len(set(matches["home_team"]).union(set(matches["away_team"])))
+
+    matches = matches[
+        matches["home_team"].apply(is_country_team)
+        & matches["away_team"].apply(is_country_team)
+    ].copy()
+
+    after_rows = len(matches)
+    after_teams = len(set(matches["home_team"]).union(set(matches["away_team"])))
+
+    print(f"Country filter applied: {before_rows} matches → {after_rows} matches")
+    print(f"Teams filtered: {before_teams} teams → {after_teams} country teams")
+
     matches["result"] = matches.apply(get_match_result, axis=1)
     matches["winner"] = matches.apply(get_winner, axis=1)
     matches["total_goals"] = matches["home_score"] + matches["away_score"]
@@ -136,3 +267,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
