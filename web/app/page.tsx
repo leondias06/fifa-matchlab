@@ -15,6 +15,17 @@ import {
   YAxis,
 } from "recharts";
 
+
+type TeamMetadata = Record<
+  string,
+  {
+    team: string;
+    display_name: string;
+    code: string | null;
+    flag: string;
+  }
+>;
+
 type Prediction = {
   home_team: string;
   away_team: string;
@@ -119,56 +130,11 @@ const rankingCategories: { key: RankingCategory; label: string }[] = [
   { key: "goal_difference", label: "Goal difference" },
 ];
 
-const flagMap: Record<string, string> = {
-  Argentina: "🇦🇷",
-  Australia: "🇦🇺",
-  Austria: "🇦🇹",
-  Belgium: "🇧🇪",
-  Brazil: "🇧🇷",
-  Cameroon: "🇨🇲",
-  Canada: "🇨🇦",
-  Chile: "🇨🇱",
-  China: "🇨🇳",
-  Colombia: "🇨🇴",
-  Croatia: "🇭🇷",
-  Denmark: "🇩🇰",
-  Ecuador: "🇪🇨",
-  Egypt: "🇪🇬",
-  England: "🏴",
-  France: "🇫🇷",
-  Germany: "🇩🇪",
-  Ghana: "🇬🇭",
-  Greece: "🇬🇷",
-  India: "🇮🇳",
-  Iran: "🇮🇷",
-  Italy: "🇮🇹",
-  Japan: "🇯🇵",
-  Mexico: "🇲🇽",
-  Morocco: "🇲🇦",
-  Netherlands: "🇳🇱",
-  Nigeria: "🇳🇬",
-  Norway: "🇳🇴",
-  Poland: "🇵🇱",
-  Portugal: "🇵🇹",
-  Qatar: "🇶🇦",
-  Russia: "🇷🇺",
-  "Saudi Arabia": "🇸🇦",
-  Scotland: "🏴",
-  Senegal: "🇸🇳",
-  Serbia: "🇷🇸",
-  Spain: "🇪🇸",
-  Sweden: "🇸🇪",
-  Switzerland: "🇨🇭",
-  Tunisia: "🇹🇳",
-  Turkey: "🇹🇷",
-  Ukraine: "🇺🇦",
-  Uruguay: "🇺🇾",
-  "United States": "🇺🇸",
-  Wales: "🏴",
-};
+
+let teamMetadataCache: TeamMetadata = {};
 
 function flag(team: string) {
-  return flagMap[team] || "⚽";
+  return teamMetadataCache[team]?.flag || "⚽";
 }
 
 function percent(value: number) {
@@ -363,14 +329,17 @@ function shuffleArray(items: string[]) {
 
 export default function Home() {
   const [teams, setTeams] = useState<string[]>([]);
+  const [, setTeamMetadata] = useState<TeamMetadata>({});
   const [predictions, setPredictions] = useState<Prediction[]>([]);
   const [teamFeatures, setTeamFeatures] = useState<TeamFeature[]>([]);
   const [headToHead, setHeadToHead] = useState<Record<string, HeadToHead>>({});
   const [rankings, setRankings] = useState<Rankings | null>(null);
   const [modelInsights, setModelInsights] = useState<ModelInsights | null>(
+    
     null
   );
 
+  
   const [homeTeam, setHomeTeam] = useState("");
   const [awayTeam, setAwayTeam] = useState("");
   const [activeRanking, setActiveRanking] =
@@ -389,7 +358,9 @@ export default function Home() {
         headToHeadResponse,
         rankingsResponse,
         modelInsightsResponse,
+        teamMetadataResponse,
       ] = await Promise.all([
+        fetch("/data/team_metadata.json"),
         fetch("/data/app_teams.json"),
         fetch("/data/model_predictions.json"),
         fetch("/data/latest_team_features.json"),
@@ -398,14 +369,54 @@ export default function Home() {
         fetch("/data/model_insights.json"),
       ]);
 
-      const teamsData: string[] = await teamsResponse.json();
+      const rawTeamsData = await teamsResponse.json();
       const predictionsData: Prediction[] = await predictionsResponse.json();
       const featuresData: TeamFeature[] = await featuresResponse.json();
       const headToHeadData: Record<string, HeadToHead> =
         await headToHeadResponse.json();
-      const rankingsData: Rankings = await rankingsResponse.json();
-      const modelInsightsData: ModelInsights =
-        await modelInsightsResponse.json();
+      const rawRankings = await rankingsResponse.json();
+
+const rankingsData: Rankings = {
+  overall: Array.isArray(rawRankings?.overall) ? rawRankings.overall : [],
+  attack: Array.isArray(rawRankings?.attack) ? rawRankings.attack : [],
+  defence: Array.isArray(rawRankings?.defence) ? rawRankings.defence : [],
+  recent_form: Array.isArray(rawRankings?.recent_form)
+    ? rawRankings.recent_form
+    : [],
+  win_rate: Array.isArray(rawRankings?.win_rate) ? rawRankings.win_rate : [],
+  goal_difference: Array.isArray(rawRankings?.goal_difference)
+    ? rawRankings.goal_difference
+    : [],
+};
+      const rawModelInsights = await modelInsightsResponse.json();
+      const teamMetadataData: TeamMetadata = await teamMetadataResponse.json();
+
+    const teamsData: string[] = Array.isArray(rawTeamsData)
+      ? rawTeamsData
+      : Object.values(rawTeamsData)
+          .map((item: any) => {
+            if (typeof item === "string") return item;
+            return item?.team;
+          })
+          .filter((team): team is string => Boolean(team))
+          .sort();
+
+      const modelInsightsData: ModelInsights = {
+        accuracy: Number(rawModelInsights?.accuracy ?? 0),
+        train_rows: Number(rawModelInsights?.train_rows ?? 0),
+        test_rows: Number(rawModelInsights?.test_rows ?? 0),
+        classes: Array.isArray(rawModelInsights?.classes)
+          ? rawModelInsights.classes
+          : [],
+        confusion_matrix: Array.isArray(rawModelInsights?.confusion_matrix)
+          ? rawModelInsights.confusion_matrix
+          : [],
+        top_features: Array.isArray(rawModelInsights?.top_features)
+          ? rawModelInsights.top_features
+          : [],
+        classification_report: rawModelInsights?.classification_report ?? {},
+      };
+
 
       setTeams(teamsData);
       setPredictions(predictionsData);
@@ -414,19 +425,27 @@ export default function Home() {
       setRankings(rankingsData);
       setModelInsights(modelInsightsData);
 
+      teamMetadataCache = teamMetadataData;
+      setTeamMetadata(teamMetadataData);
+
       const defaultHome = teamsData.includes("Argentina")
         ? "Argentina"
-        : teamsData[0];
-      const defaultAway = teamsData.includes("France")
+        : teamsData[0] ?? "";
+
+      const defaultAway =
+      teamsData.includes("France") && defaultHome !== "France"
         ? "France"
-        : teamsData[1];
+        : teamsData.find((team) => team !== defaultHome) ?? "";
 
       setHomeTeam(defaultHome);
       setAwayTeam(defaultAway);
 
-      const defaultSimTeams = rankingsData.overall
-        .slice(0, 8)
-        .map((item) => item.team);
+      const defaultSimTeams = (
+  rankingsData.overall.length ? rankingsData.overall : featuresData
+)
+  .slice(0, 8)
+  .map((item) => item.team)
+  .filter(Boolean);
 
       setSimTeams(defaultSimTeams);
       setSimTeamToAdd(teamsData[0] || "");
@@ -613,11 +632,16 @@ export default function Home() {
   }
 
   function loadTopTeams(count: number) {
-    if (!rankings) return;
-    const selected = rankings.overall.slice(0, count).map((item) => item.team);
-    setSimTeams(selected);
-    setBracketRounds([]);
-  }
+  const source = rankings?.overall?.length ? rankings.overall : teamFeatures;
+
+  const selected = source
+    .slice(0, count)
+    .map((item) => item.team)
+    .filter(Boolean);
+
+  setSimTeams(selected);
+  setBracketRounds([]);
+}
 
   function loadRandomTeams(count: number) {
     const selected = shuffleArray(teams).slice(0, count);
@@ -699,7 +723,7 @@ export default function Home() {
                 />
                 <HeroStat
                   label="Test matches"
-                  value={modelInsights ? modelInsights.test_rows.toString() : "..."}
+                  value={modelInsights ? (modelInsights.test_rows ?? 0).toString() : "..."}
                 />
               </div>
             </div>
@@ -1106,11 +1130,11 @@ export default function Home() {
             />
             <Stat
               label="Training rows"
-              value={modelInsights ? modelInsights.train_rows.toLocaleString() : "..."}
+              value={modelInsights ? (modelInsights.train_rows ?? 0).toLocaleString() : "..."}
             />
             <Stat
               label="Testing rows"
-              value={modelInsights ? modelInsights.test_rows.toLocaleString() : "..."}
+              value={modelInsights ? (modelInsights.test_rows ?? 0).toLocaleString() : "..."}
             />
           </div>
 

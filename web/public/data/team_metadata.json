@@ -1,0 +1,602 @@
+{
+  "Algeria": {
+    "team": "Algeria",
+    "display_name": "Algeria",
+    "code": "DZ",
+    "flag": "\ud83c\udde9\ud83c\uddff"
+  },
+  "Angola": {
+    "team": "Angola",
+    "display_name": "Angola",
+    "code": "AO",
+    "flag": "\ud83c\udde6\ud83c\uddf4"
+  },
+  "Argentina": {
+    "team": "Argentina",
+    "display_name": "Argentina",
+    "code": "AR",
+    "flag": "\ud83c\udde6\ud83c\uddf7"
+  },
+  "Australia": {
+    "team": "Australia",
+    "display_name": "Australia",
+    "code": "AU",
+    "flag": "\ud83c\udde6\ud83c\uddfa"
+  },
+  "Austria": {
+    "team": "Austria",
+    "display_name": "Austria",
+    "code": "AT",
+    "flag": "\ud83c\udde6\ud83c\uddf9"
+  },
+  "Bahrain": {
+    "team": "Bahrain",
+    "display_name": "Bahrain",
+    "code": "BH",
+    "flag": "\ud83c\udde7\ud83c\udded"
+  },
+  "Belgium": {
+    "team": "Belgium",
+    "display_name": "Belgium",
+    "code": "BE",
+    "flag": "\ud83c\udde7\ud83c\uddea"
+  },
+  "Bolivia": {
+    "team": "Bolivia",
+    "display_name": "Bolivia",
+    "code": "BO",
+    "flag": "\ud83c\udde7\ud83c\uddf4"
+  },
+  "Brazil": {
+    "team": "Brazil",
+    "display_name": "Brazil",
+    "code": "BR",
+    "flag": "\ud83c\udde7\ud83c\uddf7"
+  },
+  "Bulgaria": {
+    "team": "Bulgaria",
+    "display_name": "Bulgaria",
+    "code": "BG",
+    "flag": "\ud83c\udde7\ud83c\uddec"
+  },
+  "Burkina Faso": {
+    "team": "Burkina Faso",
+    "display_name": "Burkina Faso",
+    "code": "BF",
+    "flag": "\ud83c\udde7\ud83c\uddeb"
+  },
+  "Cameroon": {
+    "team": "Cameroon",
+    "display_name": "Cameroon",
+    "code": "CM",
+    "flag": "\ud83c\udde8\ud83c\uddf2"
+  },
+  "Canada": {
+    "team": "Canada",
+    "display_name": "Canada",
+    "code": "CA",
+    "flag": "\ud83c\udde8\ud83c\udde6"
+  },
+  "Chile": {
+    "team": "Chile",
+    "display_name": "Chile",
+    "code": "CL",
+    "flag": "\ud83c\udde8\ud83c\uddf1"
+  },
+  "China PR": {
+    "team": "China PR",
+    "display_name": "China PR",
+    "code": "CN",
+    "flag": "\ud83c\udde8\ud83c\uddf3"
+  },
+  "Colombia": {
+    "team": "Colombia",
+    "display_name": "Colombia",
+    "code": "CO",
+    "flag": "\ud83c\udde8\ud83c\uddf4"
+  },
+  "Congo": {
+    "team": "Congo",
+    "display_name": "Congo",
+    "code": "CG",
+    "flag": "\ud83c\udde8\ud83c\uddec"
+  },
+  "Costa Rica": {
+    "team": "Costa Rica",
+    "display_name": "Costa Rica",
+    "code": "CR",
+    "flag": "\ud83c\udde8\ud83c\uddf7"
+  },
+  "Cyprus": {
+    "team": "Cyprus",
+    "display_name": "Cyprus",
+    "code": "CY",
+    "flag": "\ud83c\udde8\ud83c\uddfe"
+  },
+  "DR Congo": {
+    "team": "DR Congo",
+    "display_name": "DR Congo",
+    "code": "CD",
+    "flag": "\ud83c\udde8\ud83c\udde9"
+  },
+  "Denmark": {
+    "team": "Denmark",
+    "display_name": "Denmark",
+    "code": "DK",
+    "flag": "\ud83c\udde9\ud83c\uddf0"
+  },
+  "Ecuador": {
+    "team": "Ecuador",
+    "display_name": "Ecuador",
+    "code": "EC",
+    "flag": "\ud83c\uddea\ud83c\udde8"
+  },
+  "Egypt": {
+    "team": "Egypt",
+    "display_name": "Egypt",
+    "code": "EG",
+    "flag": "\ud83c\uddea\ud83c\uddec"
+  },
+  "El Salvador": {
+    "team": "El Salvador",
+    "display_name": "El Salvador",
+    "code": "SV",
+    "flag": "\ud83c\uddf8\ud83c\uddfb"
+  },
+  "England": {
+    "team": "England",
+    "display_name": "England",
+    "code": "GB-ENG",
+    "flag": "\ud83c\udff4"
+  },
+  "Estonia": {
+    "team": "Estonia",
+    "display_name": "Estonia",
+    "code": "EE",
+    "flag": "\ud83c\uddea\ud83c\uddea"
+  },
+  "Finland": {
+    "team": "Finland",
+    "display_name": "Finland",
+    "code": "FI",
+    "flag": "\ud83c\uddeb\ud83c\uddee"
+  },
+  "France": {
+    "team": "France",
+    "display_name": "France",
+    "code": "FR",
+    "flag": "\ud83c\uddeb\ud83c\uddf7"
+  },
+  "Gabon": {
+    "team": "Gabon",
+    "display_name": "Gabon",
+    "code": "GA",
+    "flag": "\ud83c\uddec\ud83c\udde6"
+  },
+  "Germany": {
+    "team": "Germany",
+    "display_name": "Germany",
+    "code": "DE",
+    "flag": "\ud83c\udde9\ud83c\uddea"
+  },
+  "Ghana": {
+    "team": "Ghana",
+    "display_name": "Ghana",
+    "code": "GH",
+    "flag": "\ud83c\uddec\ud83c\udded"
+  },
+  "Greece": {
+    "team": "Greece",
+    "display_name": "Greece",
+    "code": "GR",
+    "flag": "\ud83c\uddec\ud83c\uddf7"
+  },
+  "Guatemala": {
+    "team": "Guatemala",
+    "display_name": "Guatemala",
+    "code": "GT",
+    "flag": "\ud83c\uddec\ud83c\uddf9"
+  },
+  "Guinea": {
+    "team": "Guinea",
+    "display_name": "Guinea",
+    "code": "GN",
+    "flag": "\ud83c\uddec\ud83c\uddf3"
+  },
+  "Haiti": {
+    "team": "Haiti",
+    "display_name": "Haiti",
+    "code": "HT",
+    "flag": "\ud83c\udded\ud83c\uddf9"
+  },
+  "Honduras": {
+    "team": "Honduras",
+    "display_name": "Honduras",
+    "code": "HN",
+    "flag": "\ud83c\udded\ud83c\uddf3"
+  },
+  "Hong Kong": {
+    "team": "Hong Kong",
+    "display_name": "Hong Kong",
+    "code": "HK",
+    "flag": "\ud83c\udded\ud83c\uddf0"
+  },
+  "Hungary": {
+    "team": "Hungary",
+    "display_name": "Hungary",
+    "code": "HU",
+    "flag": "\ud83c\udded\ud83c\uddfa"
+  },
+  "Iceland": {
+    "team": "Iceland",
+    "display_name": "Iceland",
+    "code": "IS",
+    "flag": "\ud83c\uddee\ud83c\uddf8"
+  },
+  "India": {
+    "team": "India",
+    "display_name": "India",
+    "code": "IN",
+    "flag": "\ud83c\uddee\ud83c\uddf3"
+  },
+  "Indonesia": {
+    "team": "Indonesia",
+    "display_name": "Indonesia",
+    "code": "ID",
+    "flag": "\ud83c\uddee\ud83c\udde9"
+  },
+  "Iran": {
+    "team": "Iran",
+    "display_name": "Iran",
+    "code": "IR",
+    "flag": "\ud83c\uddee\ud83c\uddf7"
+  },
+  "Iraq": {
+    "team": "Iraq",
+    "display_name": "Iraq",
+    "code": "IQ",
+    "flag": "\ud83c\uddee\ud83c\uddf6"
+  },
+  "Israel": {
+    "team": "Israel",
+    "display_name": "Israel",
+    "code": "IL",
+    "flag": "\ud83c\uddee\ud83c\uddf1"
+  },
+  "Italy": {
+    "team": "Italy",
+    "display_name": "Italy",
+    "code": "IT",
+    "flag": "\ud83c\uddee\ud83c\uddf9"
+  },
+  "Ivory Coast": {
+    "team": "Ivory Coast",
+    "display_name": "Ivory Coast",
+    "code": "CI",
+    "flag": "\ud83c\udde8\ud83c\uddee"
+  },
+  "Jamaica": {
+    "team": "Jamaica",
+    "display_name": "Jamaica",
+    "code": "JM",
+    "flag": "\ud83c\uddef\ud83c\uddf2"
+  },
+  "Japan": {
+    "team": "Japan",
+    "display_name": "Japan",
+    "code": "JP",
+    "flag": "\ud83c\uddef\ud83c\uddf5"
+  },
+  "Jordan": {
+    "team": "Jordan",
+    "display_name": "Jordan",
+    "code": "JO",
+    "flag": "\ud83c\uddef\ud83c\uddf4"
+  },
+  "Kenya": {
+    "team": "Kenya",
+    "display_name": "Kenya",
+    "code": "KE",
+    "flag": "\ud83c\uddf0\ud83c\uddea"
+  },
+  "Kuwait": {
+    "team": "Kuwait",
+    "display_name": "Kuwait",
+    "code": "KW",
+    "flag": "\ud83c\uddf0\ud83c\uddfc"
+  },
+  "Latvia": {
+    "team": "Latvia",
+    "display_name": "Latvia",
+    "code": "LV",
+    "flag": "\ud83c\uddf1\ud83c\uddfb"
+  },
+  "Lithuania": {
+    "team": "Lithuania",
+    "display_name": "Lithuania",
+    "code": "LT",
+    "flag": "\ud83c\uddf1\ud83c\uddf9"
+  },
+  "Luxembourg": {
+    "team": "Luxembourg",
+    "display_name": "Luxembourg",
+    "code": "LU",
+    "flag": "\ud83c\uddf1\ud83c\uddfa"
+  },
+  "Malawi": {
+    "team": "Malawi",
+    "display_name": "Malawi",
+    "code": "MW",
+    "flag": "\ud83c\uddf2\ud83c\uddfc"
+  },
+  "Malaysia": {
+    "team": "Malaysia",
+    "display_name": "Malaysia",
+    "code": "MY",
+    "flag": "\ud83c\uddf2\ud83c\uddfe"
+  },
+  "Mali": {
+    "team": "Mali",
+    "display_name": "Mali",
+    "code": "ML",
+    "flag": "\ud83c\uddf2\ud83c\uddf1"
+  },
+  "Malta": {
+    "team": "Malta",
+    "display_name": "Malta",
+    "code": "MT",
+    "flag": "\ud83c\uddf2\ud83c\uddf9"
+  },
+  "Mexico": {
+    "team": "Mexico",
+    "display_name": "Mexico",
+    "code": "MX",
+    "flag": "\ud83c\uddf2\ud83c\uddfd"
+  },
+  "Morocco": {
+    "team": "Morocco",
+    "display_name": "Morocco",
+    "code": "MA",
+    "flag": "\ud83c\uddf2\ud83c\udde6"
+  },
+  "Myanmar": {
+    "team": "Myanmar",
+    "display_name": "Myanmar",
+    "code": "MM",
+    "flag": "\ud83c\uddf2\ud83c\uddf2"
+  },
+  "Netherlands": {
+    "team": "Netherlands",
+    "display_name": "Netherlands",
+    "code": "NL",
+    "flag": "\ud83c\uddf3\ud83c\uddf1"
+  },
+  "Nigeria": {
+    "team": "Nigeria",
+    "display_name": "Nigeria",
+    "code": "NG",
+    "flag": "\ud83c\uddf3\ud83c\uddec"
+  },
+  "Northern Ireland": {
+    "team": "Northern Ireland",
+    "display_name": "Northern Ireland",
+    "code": "GB-NIR",
+    "flag": "\ud83c\uddec\ud83c\udde7"
+  },
+  "Norway": {
+    "team": "Norway",
+    "display_name": "Norway",
+    "code": "NO",
+    "flag": "\ud83c\uddf3\ud83c\uddf4"
+  },
+  "Oman": {
+    "team": "Oman",
+    "display_name": "Oman",
+    "code": "OM",
+    "flag": "\ud83c\uddf4\ud83c\uddf2"
+  },
+  "Panama": {
+    "team": "Panama",
+    "display_name": "Panama",
+    "code": "PA",
+    "flag": "\ud83c\uddf5\ud83c\udde6"
+  },
+  "Paraguay": {
+    "team": "Paraguay",
+    "display_name": "Paraguay",
+    "code": "PY",
+    "flag": "\ud83c\uddf5\ud83c\uddfe"
+  },
+  "Peru": {
+    "team": "Peru",
+    "display_name": "Peru",
+    "code": "PE",
+    "flag": "\ud83c\uddf5\ud83c\uddea"
+  },
+  "Poland": {
+    "team": "Poland",
+    "display_name": "Poland",
+    "code": "PL",
+    "flag": "\ud83c\uddf5\ud83c\uddf1"
+  },
+  "Portugal": {
+    "team": "Portugal",
+    "display_name": "Portugal",
+    "code": "PT",
+    "flag": "\ud83c\uddf5\ud83c\uddf9"
+  },
+  "Qatar": {
+    "team": "Qatar",
+    "display_name": "Qatar",
+    "code": "QA",
+    "flag": "\ud83c\uddf6\ud83c\udde6"
+  },
+  "Republic of Ireland": {
+    "team": "Republic of Ireland",
+    "display_name": "Republic of Ireland",
+    "code": "IE",
+    "flag": "\ud83c\uddee\ud83c\uddea"
+  },
+  "Romania": {
+    "team": "Romania",
+    "display_name": "Romania",
+    "code": "RO",
+    "flag": "\ud83c\uddf7\ud83c\uddf4"
+  },
+  "Russia": {
+    "team": "Russia",
+    "display_name": "Russia",
+    "code": "RU",
+    "flag": "\ud83c\uddf7\ud83c\uddfa"
+  },
+  "Saudi Arabia": {
+    "team": "Saudi Arabia",
+    "display_name": "Saudi Arabia",
+    "code": "SA",
+    "flag": "\ud83c\uddf8\ud83c\udde6"
+  },
+  "Scotland": {
+    "team": "Scotland",
+    "display_name": "Scotland",
+    "code": "GB-SCT",
+    "flag": "\ud83c\udff4"
+  },
+  "Senegal": {
+    "team": "Senegal",
+    "display_name": "Senegal",
+    "code": "SN",
+    "flag": "\ud83c\uddf8\ud83c\uddf3"
+  },
+  "Singapore": {
+    "team": "Singapore",
+    "display_name": "Singapore",
+    "code": "SG",
+    "flag": "\ud83c\uddf8\ud83c\uddec"
+  },
+  "South Africa": {
+    "team": "South Africa",
+    "display_name": "South Africa",
+    "code": "ZA",
+    "flag": "\ud83c\uddff\ud83c\udde6"
+  },
+  "South Korea": {
+    "team": "South Korea",
+    "display_name": "South Korea",
+    "code": "KR",
+    "flag": "\ud83c\uddf0\ud83c\uddf7"
+  },
+  "Spain": {
+    "team": "Spain",
+    "display_name": "Spain",
+    "code": "ES",
+    "flag": "\ud83c\uddea\ud83c\uddf8"
+  },
+  "Sudan": {
+    "team": "Sudan",
+    "display_name": "Sudan",
+    "code": "SD",
+    "flag": "\ud83c\uddf8\ud83c\udde9"
+  },
+  "Sweden": {
+    "team": "Sweden",
+    "display_name": "Sweden",
+    "code": "SE",
+    "flag": "\ud83c\uddf8\ud83c\uddea"
+  },
+  "Switzerland": {
+    "team": "Switzerland",
+    "display_name": "Switzerland",
+    "code": "CH",
+    "flag": "\ud83c\udde8\ud83c\udded"
+  },
+  "Syria": {
+    "team": "Syria",
+    "display_name": "Syria",
+    "code": "SY",
+    "flag": "\ud83c\uddf8\ud83c\uddfe"
+  },
+  "Tanzania": {
+    "team": "Tanzania",
+    "display_name": "Tanzania",
+    "code": "TZ",
+    "flag": "\ud83c\uddf9\ud83c\uddff"
+  },
+  "Thailand": {
+    "team": "Thailand",
+    "display_name": "Thailand",
+    "code": "TH",
+    "flag": "\ud83c\uddf9\ud83c\udded"
+  },
+  "Togo": {
+    "team": "Togo",
+    "display_name": "Togo",
+    "code": "TG",
+    "flag": "\ud83c\uddf9\ud83c\uddec"
+  },
+  "Trinidad and Tobago": {
+    "team": "Trinidad and Tobago",
+    "display_name": "Trinidad and Tobago",
+    "code": "TT",
+    "flag": "\ud83c\uddf9\ud83c\uddf9"
+  },
+  "Tunisia": {
+    "team": "Tunisia",
+    "display_name": "Tunisia",
+    "code": "TN",
+    "flag": "\ud83c\uddf9\ud83c\uddf3"
+  },
+  "Turkey": {
+    "team": "Turkey",
+    "display_name": "Turkey",
+    "code": "TR",
+    "flag": "\ud83c\uddf9\ud83c\uddf7"
+  },
+  "Uganda": {
+    "team": "Uganda",
+    "display_name": "Uganda",
+    "code": "UG",
+    "flag": "\ud83c\uddfa\ud83c\uddec"
+  },
+  "United Arab Emirates": {
+    "team": "United Arab Emirates",
+    "display_name": "United Arab Emirates",
+    "code": "AE",
+    "flag": "\ud83c\udde6\ud83c\uddea"
+  },
+  "United States": {
+    "team": "United States",
+    "display_name": "United States",
+    "code": "US",
+    "flag": "\ud83c\uddfa\ud83c\uddf8"
+  },
+  "Uruguay": {
+    "team": "Uruguay",
+    "display_name": "Uruguay",
+    "code": "UY",
+    "flag": "\ud83c\uddfa\ud83c\uddfe"
+  },
+  "Venezuela": {
+    "team": "Venezuela",
+    "display_name": "Venezuela",
+    "code": "VE",
+    "flag": "\ud83c\uddfb\ud83c\uddea"
+  },
+  "Wales": {
+    "team": "Wales",
+    "display_name": "Wales",
+    "code": "GB-WLS",
+    "flag": "\ud83c\udff4"
+  },
+  "Zambia": {
+    "team": "Zambia",
+    "display_name": "Zambia",
+    "code": "ZM",
+    "flag": "\ud83c\uddff\ud83c\uddf2"
+  },
+  "Zimbabwe": {
+    "team": "Zimbabwe",
+    "display_name": "Zimbabwe",
+    "code": "ZW",
+    "flag": "\ud83c\uddff\ud83c\uddfc"
+  }
+}
