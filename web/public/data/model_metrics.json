@@ -1,0 +1,89 @@
+{
+  "accuracy": 0.5305,
+  "train_rows": 39372,
+  "test_rows": 9843,
+  "features": [
+    "home_team",
+    "away_team",
+    "match_type",
+    "neutral",
+    "home_advantage",
+    "home_matches_played",
+    "home_win_rate",
+    "home_draw_rate",
+    "home_loss_rate",
+    "home_avg_goals_scored",
+    "home_avg_goals_conceded",
+    "home_goal_difference_per_match",
+    "home_recent_form_points",
+    "away_matches_played",
+    "away_win_rate",
+    "away_draw_rate",
+    "away_loss_rate",
+    "away_avg_goals_scored",
+    "away_avg_goals_conceded",
+    "away_goal_difference_per_match",
+    "away_recent_form_points",
+    "win_rate_difference",
+    "recent_form_difference",
+    "attack_difference",
+    "defence_difference",
+    "goal_difference_gap",
+    "experience_difference"
+  ],
+  "classes": [
+    "away_win",
+    "draw",
+    "home_win"
+  ],
+  "classification_report": {
+    "away_win": {
+      "precision": 0.5709395207303157,
+      "recall": 0.5253762688134407,
+      "f1-score": 0.5472110827561064,
+      "support": 2857.0
+    },
+    "draw": {
+      "precision": 0.29832175925925924,
+      "recall": 0.44943330427201394,
+      "f1-score": 0.3586086956521739,
+      "support": 2294.0
+    },
+    "home_win": {
+      "precision": 0.7158062799361362,
+      "recall": 0.5733162830349531,
+      "f1-score": 0.6366863905325444,
+      "support": 4692.0
+    },
+    "accuracy": 0.5305293101696638,
+    "macro avg": {
+      "precision": 0.5283558533085704,
+      "recall": 0.5160419520401359,
+      "f1-score": 0.5141687229802749,
+      "support": 9843.0
+    },
+    "weighted avg": {
+      "precision": 0.5764591478134312,
+      "recall": 0.5305293101696638,
+      "f1-score": 0.5459070360295623,
+      "support": 9843.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      1501,
+      958,
+      398
+    ],
+    [
+      593,
+      1031,
+      670
+    ],
+    [
+      535,
+      1467,
+      2690
+    ]
+  ]
+}
