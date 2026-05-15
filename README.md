@@ -3,9 +3,14 @@
 FIFA MatchLab is an interactive football analytics platform that predicts international match outcomes using historical FIFA match data. Users can compare teams, view win/draw/loss probabilities, explore performance trends, and simulate World Cup-style matchups.
 
 
-# Live-Demo
+
+
+## Live-Demo
 
 You can view my live deployment through vercel: https://fifa-matchlab.vercel.app/
+
+
+
 
 
 ## Features
@@ -50,6 +55,8 @@ You can view my live deployment through vercel: https://fifa-matchlab.vercel.app
   Filters the dataset to focus on international country/national teams rather than regional or non-country teams.
 
 
+
+
 ## Tech Stack
 
 ### Frontend
@@ -75,10 +82,17 @@ You can view my live deployment through vercel: https://fifa-matchlab.vercel.app
 
 ### Data
 
- - **Kaggle** - used to data on all international football teams/fixtures since 1872
+ - **Kaggle** - used to get data on all international football teams/fixtures since 1872
 
 ### Deployment
 - **Vercel** - Hosts the live Next.js web app
 - **GitHub** - Version control and project repository
 
+
+
+
+
+## Future Plans
+
+I don't have any huge plans, however I might implement somthing to do with the 2026 world cup with the exact fixtures and simulate the entire world cup. This would be a great test of my model to see how much of it actually translates.
 
