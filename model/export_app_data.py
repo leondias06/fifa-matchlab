@@ -3,6 +3,7 @@ import json
 import shutil
 import joblib
 import pandas as pd
+import pycountry
 
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
@@ -21,6 +22,86 @@ MODEL_PATH = ARTIFACTS_DIR / "match_outcome_model.joblib"
 H2H_PATH = WEB_DATA_DIR / "head_to_head.json"
 RANKINGS_PATH = WEB_DATA_DIR / "rankings.json"
 MODEL_INSIGHTS_PATH = WEB_DATA_DIR / "model_insights.json"
+TEAM_METADATA_PATH = WEB_DATA_DIR / "team_metadata.json"
+
+
+SPECIAL_TEAM_METADATA = {
+    "England": {"code": "GB-ENG", "flag": "🏴"},
+    "Scotland": {"code": "GB-SCT", "flag": "🏴"},
+    "Wales": {"code": "GB-WLS", "flag": "🏴"},
+    "Northern Ireland": {"code": "GB-NIR", "flag": "🇬🇧"},
+    "Republic of Ireland": {"code": "IE", "flag": "🇮🇪"},
+    "United States": {"code": "US", "flag": "🇺🇸"},
+    "China PR": {"code": "CN", "flag": "🇨🇳"},
+    "Chinese Taipei": {"code": "TW", "flag": "🇹🇼"},
+    "Hong Kong": {"code": "HK", "flag": "🇭🇰"},
+    "Macau": {"code": "MO", "flag": "🇲🇴"},
+    "Kosovo": {"code": "XK", "flag": "🇽🇰"},
+    "Palestine": {"code": "PS", "flag": "🇵🇸"},
+    "Faroe Islands": {"code": "FO", "flag": "🇫🇴"},
+    "Czech Republic": {"code": "CZ", "flag": "🇨🇿"},
+    "DR Congo": {"code": "CD", "flag": "🇨🇩"},
+    "Congo": {"code": "CG", "flag": "🇨🇬"},
+    "Ivory Coast": {"code": "CI", "flag": "🇨🇮"},
+    "Cape Verde": {"code": "CV", "flag": "🇨🇻"},
+    "South Korea": {"code": "KR", "flag": "🇰🇷"},
+    "North Korea": {"code": "KP", "flag": "🇰🇵"},
+    "Iran": {"code": "IR", "flag": "🇮🇷"},
+    "Russia": {"code": "RU", "flag": "🇷🇺"},
+    "Syria": {"code": "SY", "flag": "🇸🇾"},
+    "Vietnam": {"code": "VN", "flag": "🇻🇳"},
+    "Venezuela": {"code": "VE", "flag": "🇻🇪"},
+    "Bolivia": {"code": "BO", "flag": "🇧🇴"},
+    "Moldova": {"code": "MD", "flag": "🇲🇩"},
+    "Tanzania": {"code": "TZ", "flag": "🇹🇿"},
+    "Turkey": {"code": "TR", "flag": "🇹🇷"},
+    "Brunei": {"code": "BN", "flag": "🇧🇳"},
+    "Laos": {"code": "LA", "flag": "🇱🇦"},
+    "East Timor": {"code": "TL", "flag": "🇹🇱"},
+    "Kyrgyzstan": {"code": "KG", "flag": "🇰🇬"},
+    "Eswatini": {"code": "SZ", "flag": "🇸🇿"},
+}
+
+
+def country_code_to_flag(code):
+    if not code or len(code) != 2:
+        return "⚽"
+
+    return "".join(chr(127397 + ord(character.upper())) for character in code)
+
+
+def get_team_metadata(team):
+    if team in SPECIAL_TEAM_METADATA:
+        metadata = SPECIAL_TEAM_METADATA[team]
+        return {
+            "team": team,
+            "display_name": team,
+            "code": metadata["code"],
+            "flag": metadata["flag"],
+        }
+
+    try:
+        country = pycountry.countries.lookup(team)
+        code = country.alpha_2
+
+        return {
+            "team": team,
+            "display_name": team,
+            "code": code,
+            "flag": country_code_to_flag(code),
+        }
+
+    except LookupError:
+        return {
+            "team": team,
+            "display_name": team,
+            "code": None,
+            "flag": "⚽",
+        }
+
+
+def build_team_metadata(app_teams):
+    return {team: get_team_metadata(team) for team in app_teams}
 
 
 def load_json(path):
@@ -231,10 +312,12 @@ def main():
     head_to_head = build_head_to_head(matches, app_teams)
     rankings = build_rankings(team_features)
     model_insights = build_model_insights()
+    team_metadata = build_team_metadata(app_teams)
 
     save_json(H2H_PATH, head_to_head)
     save_json(RANKINGS_PATH, rankings)
     save_json(MODEL_INSIGHTS_PATH, model_insights)
+    save_json(TEAM_METADATA_PATH, team_metadata)
 
     print("App data export complete.")
     print(f"Copied app teams: {WEB_DATA_DIR / 'app_teams.json'}")
@@ -244,6 +327,8 @@ def main():
     print(f"Created head-to-head data: {H2H_PATH}")
     print(f"Created rankings data: {RANKINGS_PATH}")
     print(f"Created model insights data: {MODEL_INSIGHTS_PATH}")
+
+    print(f"Created team metadata: {TEAM_METADATA_PATH}")
 
 
 if __name__ == "__main__":
