@@ -1,6 +1,84 @@
 # FIFA MatchLab
 
-FIFA MatchLab is an interactive football analytics platform that predicts international match outcomes using historical FIFA match data. Users can compare teams, view win/draw/loss probabilities, explore performance trends, and simulate World Cup-style matchups through a clean web dashboard.
+FIFA MatchLab is an interactive football analytics platform that predicts international match outcomes using historical FIFA match data. Users can compare teams, view win/draw/loss probabilities, explore performance trends, and simulate World Cup-style matchups.
 
+
+# Live-Demo
+
+You can view my live deployment through vercel: https://fifa-matchlab.vercel.app/
+
+
+## Features
+
+- **Match Outcome Predictor**  
+  Select two international teams and generate win, draw, and loss probabilities using a machine learning model trained on historical football match data.
+
+- **Interactive Team Selection**  
+  Choose from national teams in the dataset using dropdown selectors with country flag support.
+
+- **Prediction Probability Chart**  
+  Visualizes the predicted probability of each outcome using an interactive bar chart.
+
+- **Model Explanation Panel**  
+  Provides a readable explanation of why the model predicted a specific outcome, based on factors such as recent form, win rate, attack, defence, and goal difference.
+
+- **Upset Alert System**  
+  Highlights whether a matchup is stable, uncertain, volatile, or a potential upset based on confidence and team strength indicators.
+
+- **Team Comparison Dashboard**  
+  Compares two selected teams across key statistics including win rate, average goals scored, average goals conceded, recent form, and match experience.
+
+- **Radar Comparison Chart**  
+  Displays a normalized radar chart comparing both teams across attacking strength, defensive strength, recent form, win rate, and goal difference.
+
+- **Head-to-Head History**  
+  Shows historical meetings between the selected teams, including past scores, tournaments, winners, and overall head-to-head record.
+
+- **Team Profile Cards**  
+  Displays detailed team statistics such as total matches played, goals scored, goals conceded, average goals, and recent form.
+
+- **Knockout Tournament Simulator**  
+  Allows users to simulate a knockout-style tournament using 2, 4, 8, or 16 teams, with each round predicted by the model.
+
+- **Top Teams Rankings**  
+  Ranks teams by overall strength, attack, defence, recent form, win rate, and goal difference.
+
+- **Model Performance Section**  
+  Displays model accuracy, training/testing data size, classification report, and the most influential features used by the model.
+
+- **Country-Only Dataset Filtering**  
+  Filters the dataset to focus on international country/national teams rather than regional or non-country teams.
+
+
+## Tech Stack
+
+### Frontend
+- **Next.js** - React framework used to build the web application
+- **React** - Component-based UI development
+- **TypeScript** - Type-safe frontend development
+- **Tailwind CSS** - Styling and responsive dashboard design
+- **Recharts** - Interactive charts and visualizations
+
+### Machine Learning / Data Processing
+- **Python** - Core language for data processing and model development
+- **Pandas** - Data cleaning, transformation, and feature engineering
+- **NumPy** - Numerical operations
+- **Scikit-learn** - Machine learning pipeline, preprocessing, and Logistic Regression model
+- **Joblib** - Saving and loading trained model artifacts
+- **PyCountry** - Filtering and mapping country/national team data
+
+### Model
+- **Multiclass Logistic Regression** - Predicts home win, draw, or away win
+- **ColumnTransformer** - Handles separate preprocessing for categorical and numeric features
+- **OneHotEncoder** - Encodes team names and match types
+- **StandardScaler** - Normalizes numerical features
+
+### Data
+
+ - **Kaggle** - used to data on all international football teams/fixtures since 1872
+
+### Deployment
+- **Vercel** - Hosts the live Next.js web app
+- **GitHub** - Version control and project repository
 
 
