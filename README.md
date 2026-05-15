@@ -96,3 +96,64 @@ You can view my live deployment through vercel: https://fifa-matchlab.vercel.app
 
 I don't have any huge plans, however I might implement somthing to do with the 2026 world cup with the exact fixtures and simulate the entire world cup. This would be a great test of my model to see how much of it actually translates.
 
+
+
+## Project Structure
+
+```txt
+fifa-matchlab/
+│
+├── data/
+│   ├── raw/
+│   │   └── results.csv                         Historical international football match dataset
+│   │
+│   └── processed/
+│       ├── matches_clean.csv                   Cleaned match results with outcome labels
+│       ├── team_stats.csv                      Aggregated team statistics
+│       ├── teams.json                          List of teams from the cleaned dataset
+│       ├── app_teams.json                      Country teams used in the web app
+│       ├── latest_team_features.json           Latest engineered features for each team
+│       └── model_predictions.json              Pre-generated match outcome predictions
+│
+├── model/
+│   ├── prepare_data.py                         Cleans raw data and filters country teams
+│   ├── train_model.py                          Trains the match outcome prediction model
+│   ├── export_app_data.py                      Exports JSON data for the frontend
+│   │
+│   └── artifacts/
+│       ├── match_outcome_model.joblib          Saved Scikit-learn model pipeline
+│       └── model_metrics.json                  Accuracy, classification report, and model metrics
+│
+├── notebooks/
+│   └── exploration.ipynb                       Initial data exploration and analysis
+│
+├── web/
+│   ├── app/
+│   │   ├── page.tsx                            Main FIFA MatchLab dashboard page
+│   │   ├── layout.tsx                          App layout and metadata
+│   │   └── globals.css                         Global styling and Tailwind CSS setup
+│   │
+│   ├── public/
+│   │   └── data/
+│   │       ├── app_teams.json                  Teams available in the dropdowns
+│   │       ├── model_predictions.json          Prediction probabilities for team matchups
+│   │       ├── latest_team_features.json       Team profile and comparison data
+│   │       ├── head_to_head.json               Historical head-to-head records
+│   │       ├── rankings.json                   Team rankings by attack, defence, form, and strength
+│   │       ├── model_insights.json             Model accuracy and feature importance data
+│   │       ├── model_metrics.json              Model performance metrics
+│   │       └── team_metadata.json              Country flags and team metadata
+│   │
+│   ├── package.json                            Frontend dependencies and scripts
+│   ├── tsconfig.json                           TypeScript configuration
+│   └── next.config.ts                          Next.js configuration
+│
+├── requirements.txt                            Python dependencies
+├── .gitignore                                  Files and folders ignored by Git
+└── README.md                                   Project documentation
+
+
+
+
+
+
